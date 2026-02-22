@@ -11,103 +11,107 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background:#f4f8ff;
-color:#222;
-scroll-behavior:smooth;
+background:#0f172a;
+color:#e2e8f0;
 }
 
-/* Header */
 header{
-background:linear-gradient(135deg,#007bff,#00c6ff);
-color:#fff;
+background:linear-gradient(135deg,#0284c7,#06b6d4);
 text-align:center;
-padding:30px 10px;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
+padding:25px;
+color:#fff;
 }
 
-header h1{margin:0;font-size:28px;}
-header p{margin-top:5px;font-size:14px;}
+.btn{
+background:#06b6d4;
+color:#fff;
+padding:10px 16px;
+margin:5px;
+border-radius:6px;
+text-decoration:none;
+display:inline-block;
+}
 
-/* Section */
 section{
-padding:40px 15px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
+padding:40px 15px;
 }
 
-/* Cards */
+h2{
+border-left:4px solid #06b6d4;
+padding-left:10px;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:18px;
 }
 
 .card{
-background:#fff;
-border-radius:12px;
-padding:20px;
-text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,0.08);
-transition:0.3s;
+background:#1e293b;
+padding:18px;
+border-radius:10px;
 cursor:pointer;
+text-align:center;
+transition:0.3s;
 }
 
 .card:hover{
 transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+background:#334155;
 }
 
-.card h3{margin:10px 0;}
-
-/* Buttons */
-.btn{
-display:inline-block;
-background:#007bff;
-color:#fff;
-padding:10px 18px;
-border-radius:6px;
-text-decoration:none;
-margin:5px;
-}
-
-/* Accordion */
-.accordion{
-background:#fff;
-margin-bottom:10px;
-border-radius:8px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-.acc-header{
-padding:12px;
-font-weight:600;
-cursor:pointer;
-background:#eaf3ff;
-}
-
-.acc-content{
+/* Popup */
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
 display:none;
-padding:12px;
+align-items:center;
+justify-content:center;
 }
 
-/* Floating WhatsApp */
+.popup-content{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+max-width:400px;
+width:90%;
+}
+
+.close{
+float:right;
+cursor:pointer;
+color:#fff;
+}
+
+/* WhatsApp */
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
-color:#fff;
-padding:14px 16px;
+padding:14px;
 border-radius:50%;
-font-size:20px;
+color:#fff;
 text-decoration:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Footer */
+/* Status */
+input{
+padding:10px;
+width:70%;
+border-radius:6px;
+border:none;
+}
+
 footer{
-background:#002b5b;
-color:#fff;
+background:#020617;
 text-align:center;
 padding:20px;
 margin-top:40px;
@@ -119,127 +123,114 @@ margin-top:40px;
 
 <header>
 <h1>Dhruv E-Mitra Seva Kendra</h1>
-<p>Fast • Reliable • Secure | Brij Nagar, Bharatpur</p>
+<p>Brij Nagar, Bharatpur | Fast • Reliable • Secure</p>
+
 <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform" target="_blank">Apply Service</a>
-<a class="btn" href="upi://pay?pa=tarun.8240@ptyes&pn=Tarun%20Singh">Pay Now</a>
-<a class="btn" href="https://maps.app.goo.gl/DJMdpmagpX9Qcd1w9" target="_blank">Location</a>
+<a class="btn" href="upi://pay?pa=tarun.8240@ptyes">Pay Now</a>
+<a class="btn" href="https://maps.google.com?q=27.2067169,77.5246241" target="_blank">Location</a>
+<a class="btn" href="https://wa.me/919079368240" target="_blank">WhatsApp</a>
 </header>
 
-<!-- SERVICES -->
 <section>
-<h2>Our Services</h2>
-<div class="grid">
+<h2>All Services</h2>
 
-<div class="card" onclick="openService('Aadhaar Services')">
-<h3>Aadhaar Services</h3>
-</div>
-
-<div class="card" onclick="openService('PAN Card Services')">
-<h3>PAN Card</h3>
-</div>
-
-<div class="card" onclick="openService('Certificate Services')">
-<h3>Income / Caste / Domicile</h3>
-</div>
-
-<div class="card" onclick="openService('Ayushman Card')">
-<h3>Ayushman Card</h3>
-</div>
-
-<div class="card" onclick="openService('E-Shram')">
-<h3>E-Shram</h3>
-</div>
-
-<div class="card" onclick="openService('Bill Payment')">
-<h3>Bill Payment</h3>
-</div>
-
-<div class="card" onclick="openService('Online Form Filling')">
-<h3>Online Forms</h3>
-</div>
-
-</div>
+<div class="grid" id="services"></div>
 </section>
 
-<!-- REQUIRED DOCUMENTS -->
 <section>
-<h2>Required Documents</h2>
-
-<div class="accordion">
-<div class="acc-header">Aadhaar Update</div>
-<div class="acc-content">
-Aadhaar Copy<br>Mobile Number<br>Address Proof
-</div>
-</div>
-
-<div class="accordion">
-<div class="acc-header">PAN Card</div>
-<div class="acc-content">
-Aadhaar<br>Photo<br>Signature
-</div>
-</div>
-
-<div class="accordion">
-<div class="acc-header">Income Certificate</div>
-<div class="acc-content">
-Aadhaar<br>Ration Card<br>Income Proof
-</div>
-</div>
-
+<h2>Status Check</h2>
+<input type="text" placeholder="Enter Mobile / Request ID">
+<a class="btn" href="https://wa.me/919079368240">Check via WhatsApp</a>
 </section>
 
-<!-- FORMATS -->
 <section>
-<h2>Download Formats</h2>
-<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Income Format</a>
-<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Affidavit Format</a>
-<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Self Declaration</a>
+<h2>Payment QR</h2>
+<img src="https://i.ibb.co/sJRMjMfq/upi-qr-png.jpg" width="200">
+<p>UPI: tarun.8240@ptyes</p>
 </section>
 
-<!-- LIVE NOTIFICATIONS -->
 <section>
-<h2>Latest Jobs & Updates</h2>
-<div id="jobs">Loading updates...</div>
+<h2>Our Location</h2>
+<iframe src="https://maps.google.com/maps?q=27.2067169,77.5246241&z=15&output=embed"
+width="100%" height="300" style="border:0;"></iframe>
 </section>
 
 <footer>
-<p>Call/WhatsApp: 9079368240</p>
-<p>Website: tarunsinghgunesh.github.io/dhruvemitrasevakendra</p>
+<p>Call / WhatsApp: 9079368240</p>
+<p>Dhruv E-Mitra Seva Kendra</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919079368240" target="_blank">W</a>
+<a class="whatsapp" href="https://wa.me/919079368240">W</a>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+<div class="popup-content">
+<span class="close" onclick="closePopup()">✖</span>
+<h3 id="serviceName"></h3>
+<p id="documents"></p>
+
+<a class="btn" id="applyBtn" target="_blank">Apply Now</a>
+<a class="btn" href="https://emitra.rajasthan.gov.in/emitra/report/guideline" target="_blank">View Format</a>
+</div>
+</div>
 
 <script>
-function openService(service){
-let url="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform?usp=pp_url&entry.1566383754="+encodeURIComponent(service);
-window.open(url,'_blank');
+
+const formBase="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform?usp=pp_url&entry.1566383754=";
+
+const services = {
+"Aadhaar Services":"Aadhaar copy, Mobile number, Address proof",
+"PAN Card":"Aadhaar, Photo, Signature",
+"Income Certificate":"Aadhaar, Ration card, Income proof",
+"Caste Certificate":"Aadhaar, Family record",
+"Domicile Certificate":"Aadhaar, Address proof",
+"Birth Certificate":"Hospital proof, Aadhaar",
+"Death Certificate":"Hospital proof, Aadhaar",
+"Ayushman Card":"Aadhaar, Mobile",
+"E-Shram":"Aadhaar, Bank passbook",
+"Jan Aadhaar":"Family details",
+"Ration Card":"Aadhaar, Family details",
+"Scholarship":"Aadhaar, Marksheet",
+"Job Form":"Photo, Signature",
+"Police Verification":"Aadhaar, Address proof",
+"Character Certificate":"Aadhaar",
+"Marriage Certificate":"Marriage proof",
+"Electricity Bill":"Consumer number",
+"Water Bill":"Consumer number",
+"Gas Booking":"Consumer number",
+"Mobile Recharge":"Mobile number",
+"DTH Recharge":"Customer ID",
+"Driving License":"Aadhaar, Photo",
+"Vehicle Services":"RC, Aadhaar",
+"Passport":"Aadhaar, Address proof",
+"Voter ID":"Aadhaar",
+"Labour Card":"Aadhaar",
+"PM Kisan":"Aadhaar, Land proof",
+"Pension":"Aadhaar, Bank passbook",
+"Bank Account":"Aadhaar, PAN"
+};
+
+const container=document.getElementById("services");
+
+for(let service in services){
+let div=document.createElement("div");
+div.className="card";
+div.innerText=service;
+div.onclick=()=>openPopup(service,services[service]);
+container.appendChild(div);
 }
 
-// Accordion
-document.querySelectorAll(".acc-header").forEach(item=>{
-item.onclick=()=>{
-let content=item.nextElementSibling;
-content.style.display = content.style.display==="block" ? "none" : "block";
+function openPopup(name,docs){
+document.getElementById("popup").style.display="flex";
+document.getElementById("serviceName").innerText=name;
+document.getElementById("documents").innerHTML="<b>Required Documents:</b><br>"+docs;
+document.getElementById("applyBtn").href=formBase+encodeURIComponent(name);
 }
-});
 
-// Live Jobs from Google Sheet (replace YOUR_SHEET_JSON)
-fetch("YOUR_SHEET_JSON_URL")
-.then(res=>res.json())
-.then(data=>{
-let html="";
-data.forEach(item=>{
-html+=`<div class="card">
-<h3>${item.Title}</h3>
-<p>Last Date: ${item.LastDate}</p>
-<a class="btn" href="${item.Link}" target="_blank">Apply</a>
-</div>`;
-});
-document.getElementById("jobs").innerHTML=html;
-})
-.catch(()=>{
-document.getElementById("jobs").innerHTML="Add Google Sheet JSON URL";
-});
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
 </script>
 
 </body>
