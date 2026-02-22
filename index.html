@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhruv E-Mitra Seva Kendra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#f4f8ff;
+color:#222;
+scroll-behavior:smooth;
+}
+
+/* Header */
+header{
+background:linear-gradient(135deg,#007bff,#00c6ff);
+color:#fff;
+text-align:center;
+padding:30px 10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1{margin:0;font-size:28px;}
+header p{margin-top:5px;font-size:14px;}
+
+/* Section */
+section{
+padding:40px 15px;
+max-width:1100px;
+margin:auto;
+}
+
+/* Cards */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#fff;
+border-radius:12px;
+padding:20px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h3{margin:10px 0;}
+
+/* Buttons */
+.btn{
+display:inline-block;
+background:#007bff;
+color:#fff;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+margin:5px;
+}
+
+/* Accordion */
+.accordion{
+background:#fff;
+margin-bottom:10px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.acc-header{
+padding:12px;
+font-weight:600;
+cursor:pointer;
+background:#eaf3ff;
+}
+
+.acc-content{
+display:none;
+padding:12px;
+}
+
+/* Floating WhatsApp */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:14px 16px;
+border-radius:50%;
+font-size:20px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer{
+background:#002b5b;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Dhruv E-Mitra Seva Kendra</h1>
+<p>Fast • Reliable • Secure | Brij Nagar, Bharatpur</p>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform" target="_blank">Apply Service</a>
+<a class="btn" href="upi://pay?pa=tarun.8240@ptyes&pn=Tarun%20Singh">Pay Now</a>
+<a class="btn" href="https://maps.app.goo.gl/DJMdpmagpX9Qcd1w9" target="_blank">Location</a>
+</header>
+
+<!-- SERVICES -->
+<section>
+<h2>Our Services</h2>
+<div class="grid">
+
+<div class="card" onclick="openService('Aadhaar Services')">
+<h3>Aadhaar Services</h3>
+</div>
+
+<div class="card" onclick="openService('PAN Card Services')">
+<h3>PAN Card</h3>
+</div>
+
+<div class="card" onclick="openService('Certificate Services')">
+<h3>Income / Caste / Domicile</h3>
+</div>
+
+<div class="card" onclick="openService('Ayushman Card')">
+<h3>Ayushman Card</h3>
+</div>
+
+<div class="card" onclick="openService('E-Shram')">
+<h3>E-Shram</h3>
+</div>
+
+<div class="card" onclick="openService('Bill Payment')">
+<h3>Bill Payment</h3>
+</div>
+
+<div class="card" onclick="openService('Online Form Filling')">
+<h3>Online Forms</h3>
+</div>
+
+</div>
+</section>
+
+<!-- REQUIRED DOCUMENTS -->
+<section>
+<h2>Required Documents</h2>
+
+<div class="accordion">
+<div class="acc-header">Aadhaar Update</div>
+<div class="acc-content">
+Aadhaar Copy<br>Mobile Number<br>Address Proof
+</div>
+</div>
+
+<div class="accordion">
+<div class="acc-header">PAN Card</div>
+<div class="acc-content">
+Aadhaar<br>Photo<br>Signature
+</div>
+</div>
+
+<div class="accordion">
+<div class="acc-header">Income Certificate</div>
+<div class="acc-content">
+Aadhaar<br>Ration Card<br>Income Proof
+</div>
+</div>
+
+</section>
+
+<!-- FORMATS -->
+<section>
+<h2>Download Formats</h2>
+<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Income Format</a>
+<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Affidavit Format</a>
+<a class="btn" href="https://emitra.rajasthan.gov.in" target="_blank">Self Declaration</a>
+</section>
+
+<!-- LIVE NOTIFICATIONS -->
+<section>
+<h2>Latest Jobs & Updates</h2>
+<div id="jobs">Loading updates...</div>
+</section>
+
+<footer>
+<p>Call/WhatsApp: 9079368240</p>
+<p>Website: tarunsinghgunesh.github.io/dhruvemitrasevakendra</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919079368240" target="_blank">W</a>
+
+<script>
+function openService(service){
+let url="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform?usp=pp_url&entry.1566383754="+encodeURIComponent(service);
+window.open(url,'_blank');
+}
+
+// Accordion
+document.querySelectorAll(".acc-header").forEach(item=>{
+item.onclick=()=>{
+let content=item.nextElementSibling;
+content.style.display = content.style.display==="block" ? "none" : "block";
+}
+});
+
+// Live Jobs from Google Sheet (replace YOUR_SHEET_JSON)
+fetch("YOUR_SHEET_JSON_URL")
+.then(res=>res.json())
+.then(data=>{
+let html="";
+data.forEach(item=>{
+html+=`<div class="card">
+<h3>${item.Title}</h3>
+<p>Last Date: ${item.LastDate}</p>
+<a class="btn" href="${item.Link}" target="_blank">Apply</a>
+</div>`;
+});
+document.getElementById("jobs").innerHTML=html;
+})
+.catch(()=>{
+document.getElementById("jobs").innerHTML="Add Google Sheet JSON URL";
+});
+</script>
+
+</body>
+</html>
