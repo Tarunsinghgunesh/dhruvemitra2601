@@ -5,62 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhruv E-Mitra Seva Kendra</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
-background:#0f172a;
-color:#e2e8f0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#eef5ff,#f8fbff);
+color:#222;
+scroll-behavior:smooth;
 }
 
-header{
-background:linear-gradient(135deg,#0284c7,#06b6d4);
-text-align:center;
-padding:25px;
-color:#fff;
+/* NAVBAR */
+nav{
+background:#ffffffcc;
+backdrop-filter:blur(10px);
+box-shadow:0 2px 12px rgba(0,0,0,0.08);
+padding:14px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h2{color:#0a7cff;margin:0;}
+
+nav a{
+text-decoration:none;
+margin:0 10px;
+color:#333;
+font-weight:600;
 }
 
 .btn{
-background:#06b6d4;
-color:#fff;
-padding:10px 16px;
-margin:5px;
-border-radius:6px;
+background:linear-gradient(45deg,#0a7cff,#00c6ff);
+color:white;
+padding:10px 22px;
+border-radius:25px;
 text-decoration:none;
-display:inline-block;
 }
 
-section{
-max-width:1200px;
+/* HERO */
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:40px;
+background:linear-gradient(90deg,#0a7cff,#00c6ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* SERVICES */
+.services{
+padding:50px 20px;
+max-width:1100px;
 margin:auto;
-padding:40px 15px;
-}
-
-h2{
-border-left:4px solid #06b6d4;
-padding-left:10px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
 .card{
-background:#1e293b;
-padding:18px;
-border-radius:10px;
-cursor:pointer;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
 text-align:center;
+cursor:pointer;
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-background:#334155;
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 /* Popup */
@@ -70,24 +95,58 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.5);
 display:none;
-align-items:center;
 justify-content:center;
+align-items:center;
 }
 
 .popup-content{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-max-width:400px;
+background:#fff;
+padding:25px;
+border-radius:15px;
 width:90%;
+max-width:400px;
 }
 
 .close{
 float:right;
 cursor:pointer;
-color:#fff;
+font-size:18px;
+}
+
+/* STATUS */
+.status-box{
+max-width:420px;
+margin:auto;
+background:#f8fbff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.status-box input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-bottom:15px;
+}
+
+/* QR */
+.qr{
+width:220px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* MAP */
+iframe{
+width:100%;
+height:320px;
+border:none;
+border-radius:12px;
 }
 
 /* WhatsApp */
@@ -96,141 +155,140 @@ position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
+color:white;
 padding:14px;
 border-radius:50%;
-color:#fff;
+font-size:22px;
 text-decoration:none;
-}
-
-/* Status */
-input{
-padding:10px;
-width:70%;
-border-radius:6px;
-border:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 footer{
-background:#020617;
+background:#000d1a;
+color:#ccc;
 text-align:center;
-padding:20px;
-margin-top:40px;
+padding:15px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+<h2>Dhruv E-Mitra</h2>
+<div>
+<a href="#services">Services</a>
+<a href="#status">Status</a>
+<a href="#payment">Payment</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<div class="hero">
 <h1>Dhruv E-Mitra Seva Kendra</h1>
-<p>Brij Nagar, Bharatpur | Fast • Reliable • Secure</p>
+<p>Fast • Secure • Trusted Government Services</p>
+</div>
 
-<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform" target="_blank">Apply Service</a>
-<a class="btn" href="upi://pay?pa=tarun.8240@ptyes">Pay Now</a>
-<a class="btn" href="https://maps.google.com?q=27.2067169,77.5246241" target="_blank">Location</a>
-<a class="btn" href="https://wa.me/919079368240" target="_blank">WhatsApp</a>
-</header>
-
-<section>
-<h2>All Services</h2>
-
-<div class="grid" id="services"></div>
-</section>
-
-<section>
-<h2>Status Check</h2>
-<input type="text" placeholder="Enter Mobile / Request ID">
-<a class="btn" href="https://wa.me/919079368240">Check via WhatsApp</a>
-</section>
-
-<section>
-<h2>Payment QR</h2>
-<img src="https://i.ibb.co/sJRMjMfq/upi-qr-png.jpg" width="200">
-<p>UPI: tarun.8240@ptyes</p>
-</section>
-
-<section>
-<h2>Our Location</h2>
-<iframe src="https://maps.google.com/maps?q=27.2067169,77.5246241&z=15&output=embed"
-width="100%" height="300" style="border:0;"></iframe>
-</section>
-
-<footer>
-<p>Call / WhatsApp: 9079368240</p>
-<p>Dhruv E-Mitra Seva Kendra</p>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919079368240">W</a>
+<div class="services" id="services">
+<h2 style="text-align:center;">All Services</h2>
+<div class="grid" id="serviceList"></div>
+</div>
 
 <!-- Popup -->
 <div class="popup" id="popup">
 <div class="popup-content">
 <span class="close" onclick="closePopup()">✖</span>
-<h3 id="serviceName"></h3>
-<p id="documents"></p>
+<h3 id="serviceTitle"></h3>
+<p id="serviceDocs"></p>
 
-<a class="btn" id="applyBtn" target="_blank">Apply Now</a>
+<a id="applyBtn" class="btn" target="_blank">Apply Now</a>
 <a class="btn" href="https://emitra.rajasthan.gov.in/emitra/report/guideline" target="_blank">View Format</a>
 </div>
 </div>
 
-<script>
+<!-- STATUS -->
+<section id="status">
+<h2 style="text-align:center;">Check Application Status</h2>
+<div class="status-box">
+<input type="text" placeholder="Enter Mobile or Request ID">
+<a class="btn" href="https://wa.me/919079368240">Check via WhatsApp</a>
+</div>
+</section>
 
+<!-- PAYMENT -->
+<section id="payment" style="text-align:center;padding:40px;">
+<h2>Payment</h2>
+<img src="https://i.ibb.co/sJRMjMfq/upi-qr-png.jpg" class="qr">
+<p><b>UPI:</b> tarun.8240@ptyes</p>
+<a class="btn" href="upi://pay?pa=tarun.8240@ptyes&pn=Tarun%20Singh">Pay Now</a>
+</section>
+
+<!-- MAP -->
+<section style="padding:40px;">
+<h2 style="text-align:center;">Visit Our Center</h2>
+<iframe src="https://www.google.com/maps?q=27.2067169,77.5246241&z=17&output=embed"></iframe>
+</section>
+
+<div class="hero" id="contact">
+<h2>Contact</h2>
+<p>Phone: 9079368240</p>
+<p>Email: tarunsinghgunesh@gmail.com</p>
+<a class="btn" href="https://wa.me/919079368240">WhatsApp</a>
+</div>
+
+<footer>
+© 2026 Dhruv E-Mitra Seva Kendra
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919079368240">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
 const formBase="https://docs.google.com/forms/d/e/1FAIpQLSexE2M_ClTygKtoOGFCzTAL-FQH31nt_Hj5TRGV2b3aGhEsFg/viewform?usp=pp_url&entry.1566383754=";
 
-const services = {
-"Aadhaar Services":"Aadhaar copy, Mobile number, Address proof",
+const services={
+"Aadhaar Services":"Aadhaar Copy, Mobile Number, Address Proof",
 "PAN Card":"Aadhaar, Photo, Signature",
-"Income Certificate":"Aadhaar, Ration card, Income proof",
-"Caste Certificate":"Aadhaar, Family record",
-"Domicile Certificate":"Aadhaar, Address proof",
-"Birth Certificate":"Hospital proof, Aadhaar",
-"Death Certificate":"Hospital proof, Aadhaar",
+"Income Certificate":"Aadhaar, Income Proof, Photo",
+"Caste Certificate":"Aadhaar, Old Certificate",
+"Domicile Certificate":"Aadhaar, Address Proof",
+"Birth Certificate":"Hospital Proof, Aadhaar",
+"Death Certificate":"Hospital Proof, Aadhaar",
 "Ayushman Card":"Aadhaar, Mobile",
-"E-Shram":"Aadhaar, Bank passbook",
-"Jan Aadhaar":"Family details",
-"Ration Card":"Aadhaar, Family details",
+"E-Shram":"Aadhaar, Bank Passbook",
+"Jan Aadhaar":"Family Details",
+"Ration Card":"Aadhaar, Family Details",
 "Scholarship":"Aadhaar, Marksheet",
 "Job Form":"Photo, Signature",
-"Police Verification":"Aadhaar, Address proof",
-"Character Certificate":"Aadhaar",
-"Marriage Certificate":"Marriage proof",
-"Electricity Bill":"Consumer number",
-"Water Bill":"Consumer number",
-"Gas Booking":"Consumer number",
-"Mobile Recharge":"Mobile number",
-"DTH Recharge":"Customer ID",
+"Bill Payment":"Consumer Number",
+"Mobile Recharge":"Mobile Number",
 "Driving License":"Aadhaar, Photo",
-"Vehicle Services":"RC, Aadhaar",
-"Passport":"Aadhaar, Address proof",
+"Passport":"Aadhaar, Address Proof",
 "Voter ID":"Aadhaar",
-"Labour Card":"Aadhaar",
-"PM Kisan":"Aadhaar, Land proof",
-"Pension":"Aadhaar, Bank passbook",
-"Bank Account":"Aadhaar, PAN"
+"Pension":"Aadhaar, Bank Passbook"
 };
 
-const container=document.getElementById("services");
+const container=document.getElementById("serviceList");
 
 for(let service in services){
 let div=document.createElement("div");
 div.className="card";
-div.innerText=service;
-div.onclick=()=>openPopup(service,services[service]);
+div.innerHTML="<h3>"+service+"</h3>";
+div.onclick=()=>openPopup(service);
 container.appendChild(div);
 }
 
-function openPopup(name,docs){
+function openPopup(service){
 document.getElementById("popup").style.display="flex";
-document.getElementById("serviceName").innerText=name;
-document.getElementById("documents").innerHTML="<b>Required Documents:</b><br>"+docs;
-document.getElementById("applyBtn").href=formBase+encodeURIComponent(name);
+document.getElementById("serviceTitle").innerText=service;
+document.getElementById("serviceDocs").innerHTML="<b>Required Documents:</b><br>"+services[service];
+document.getElementById("applyBtn").href=formBase+encodeURIComponent(service);
 }
 
 function closePopup(){
 document.getElementById("popup").style.display="none";
 }
-
 </script>
 
 </body>
